@@ -26,6 +26,7 @@ data = np.vstack([data1, data2])
 prot_attr = np.ones(2 * nr_points_per_group)
 prot_attr[:nr_points_per_group] = 0
 
+
 # fair PCA as described in Section 2 of our paper
 pipe = apply_fair_PCA_to_dataset((data, prot_attr, prot_attr), target_dim,
                                  fit_classifier=False, standardize=False)
@@ -44,6 +45,7 @@ plt.scatter(lowdim_repr[:nr_points_per_group, 0],
 plt.title('Fair PCA as described in Section 2', fontsize=22)
 plt.tight_layout()
 plt.savefig('illustration_Figure1/illustration_fair_PCA.pdf')
+
 
 # fair PCA as described in Section 3.6 of our paper
 pipe = apply_fair_PCA_equalize_covariance_to_dataset(
