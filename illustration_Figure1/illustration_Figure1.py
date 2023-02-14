@@ -49,7 +49,7 @@ plt.savefig('illustration_Figure1/illustration_fair_PCA.pdf')
 pipe = apply_fair_PCA_equalize_covariance_to_dataset(
     (data, prot_attr, prot_attr),
     target_dim, fit_classifier=False, standardize=False,
-    nr_evecs_cov_constraint=int(0.5 * original_dim))
+    nr_eigenvecs_cov_constraint=int(0.5 * original_dim))
 lowdim_repr = pipe.just_transform(data)[:, :target_dim]
 highdim_repr = np.matmul(np.matmul(data, pipe['FairPCA'].transformation_matrix),
                          np.transpose(pipe['FairPCA'].transformation_matrix))
