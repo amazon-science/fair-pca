@@ -27,14 +27,14 @@ wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/optApprox.m 
 wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/mw.m -P experiment_as_in_Lee_real_data
 ```
 
-* Download the [Adult Income](https://archive.ics.uci.edu/ml/datasets/adult) and the [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset from the UCI repository to the folder comparison_with_Agarwal by running, from within that folder,
+* Download the [Adult Income](https://archive.ics.uci.edu/ml/datasets/adult) and the [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset from the UCI repository to the folder `comparison_with_Agarwal` by running, from within that folder,
 ```
 wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
 wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test
 wget https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip
 unzip bank-additional.zip
 ``` 
-Delete the first row of the adult.test file.
+* Delete the first row of the adult.test file.
  
 
  
@@ -53,7 +53,7 @@ Delete the first row of the adult.test file.
 
 * In order to produce the plots of Figures 4 & 8, from the project root directory
  run `comparison_with_Agarwal/comparison_with_Agarwal.py`. Change the parameters in 
-   Lines 15 - 20 depending on which plots you want to create.
+   Lines 24 - 29 depending on which plots you want to create.
  
 
 
