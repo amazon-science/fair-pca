@@ -14,24 +14,27 @@ This repository contains code for our AISTATS 2023 paper [Efficient fair PCA for
 
 * Download the code provided by [Ravfogel et al. (2020)](https://github.com/shauli-ravfogel/nullspace_projection) by running
    `git clone https://github.com/shauli-ravfogel/nullspace_projection.git`. Change Line 5 in
-   `nullspace_projection/src/debias.py` from 'from src import classifier' to
-   'from nullspace_projection.src import classifier'.
+   `nullspace_projection/src/debias.py` from **from src import classifier** to
+   **from nullspace_projection.src import classifier**.
 
 * Download the code provided by [Ravfogel et al. (2022)](https://github.com/shauli-ravfogel/rlace-icml) by running
-   `git clone https://github.com/shauli-ravfogel/rlace-icml.git`. Rename the folder rlace-icml to
-   rlace_icml.
+   `git clone https://github.com/shauli-ravfogel/rlace-icml.git`. Rename the folder **rlace-icml** to
+   **rlace_icml**.
 
 * Download some of the code provided by Samadi et al. (2018) by running 
-
-   `wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/optApprox.m -P experiment_as_in_Lee_real_data` 
-   `wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/mw.m -P experiment_as_in_Lee_real_data`
+```
+wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/optApprox.m -P experiment_as_in_Lee_real_data
+wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/mw.m -P experiment_as_in_Lee_real_data
+```
 
 * Download the [Adult Income](https://archive.ics.uci.edu/ml/datasets/adult) and the [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset from the UCI repository to the folder comparison_with_Agarwal by running, from within that folder,
-   + `wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data`
-   + `wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test`
-   + `wget https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip`
-   + `unzip bank-additional.zip` 
-   Delete the first row of the adult.test file.
+```
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip
+unzip bank-additional.zip
+``` 
+Delete the first row of the adult.test file.
  
 
  
