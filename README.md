@@ -58,7 +58,7 @@ unzip bank-additional.zip -d comparison_with_Agarwal
 
  ## Remarks
 
- * You might observe slightly different results compared to what we reported in the paper. The reason is that in the paper we reran the methods of [Olfat and Aswani (2019)](https://arxiv.org/abs/1802.03765) and [Lee et al. (2022)](https://arxiv.org/abs/2109.11196) while here we use the results for these methods that are provided with the code of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca). Rerunning those methods requires the installation of additional software --- see the repository of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca) for details.
+ * You might observe slightly different results compared to what we reported in the paper. The reason is that in the paper we reran the methods of [Olfat and Aswani (2019)](https://arxiv.org/abs/1802.03765) and [Lee et al. (2022)](https://arxiv.org/abs/2109.11196) while here we use the results provided with the code of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca). Rerunning those methods requires the installation of additional software --- see the repository of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca) for details.
 
 
  ## Citation
