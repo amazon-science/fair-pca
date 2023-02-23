@@ -21,7 +21,7 @@ This repository contains code for our AISTATS 2023 paper [Efficient fair PCA for
    `git clone https://github.com/shauli-ravfogel/rlace-icml.git`. Rename the folder **rlace-icml** to
    **rlace_icml**.
 
-* Download some of the code provided by Samadi et al. (2018) by running 
+* Download some of the code provided by [Samadi et al. (2018)](https://github.com/samirasamadi/Fair-PCA) by running 
 ```
 wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/optApprox.m -P experiment_as_in_Lee_real_data
 wget https://raw.githubusercontent.com/samirasamadi/Fair-PCA/master/mw.m -P experiment_as_in_Lee_real_data
@@ -58,7 +58,7 @@ unzip bank-additional.zip -d comparison_with_Agarwal
 
  ## Remarks
 
- * You might observe slightly different results from what we reported in the paper. The reason is that in the paper we reran the methods of [Olfat and Aswani (2019)](https://arxiv.org/abs/1802.03765) and [Lee et al. (2022)](https://arxiv.org/abs/2109.11196) while here we use the results for these methods that are provided with the code of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca). Reruning those methods requires the installation of additional software --- see the repository of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca) for details.
+ * You might observe slightly different results compared to what we reported in the paper. The reason is that in the paper we reran the methods of [Olfat and Aswani (2019)](https://arxiv.org/abs/1802.03765) and [Lee et al. (2022)](https://arxiv.org/abs/2109.11196) while here we use the results for these methods that are provided with the code of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca). Rerunning those methods requires the installation of additional software --- see the repository of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca) for details.
 
 
  ## Citation
