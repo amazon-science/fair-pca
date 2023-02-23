@@ -27,10 +27,10 @@ fairness_goal = 'DP'  # 'DP' or 'EO'
 dataset = "Adult"
 classifier = "logreg"
 
-seed = 1234
+seed = 1111
 np.random.seed(seed)
 
-nr_of_runs = 2
+nr_of_runs = 10
 nr_of_datapoints_array = [1000, 5000, 10000, 20000, 30000, 40000]
 
 fairness_parameters_FairPCA = np.linspace(0, 1, 11)

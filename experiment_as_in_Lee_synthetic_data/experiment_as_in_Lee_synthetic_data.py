@@ -5,8 +5,7 @@
 import csv
 import numpy as np
 import os
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import LinearSVC, SVC
+from sklearn.svm import LinearSVC
 import time
 
 from src.fair_pca.fair_PCA import apply_fair_PCA_to_dataset, \

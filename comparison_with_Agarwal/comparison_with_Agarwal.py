@@ -21,17 +21,17 @@ plt.rcParams['ps.fonttype'] = 42
 
 
 ### SET PARAMETERS #################################################################################
-dataset = "Bank"  # "Adult" or "Bank"
-classifier = "kernel_svm"  # "logreg" or "kernel_svm"
+dataset = "Adult"  # "Adult" or "Bank"
+classifier = "logreg"  # "logreg" or "kernel_svm"
 fairness_goal = 'DP'  # 'DP' or 'EO'
+plot_legend = False  # True or False
 
-# methods_to_run needs to be a subset of ['PCA', 'PCA-S', 'PCA-S2', 'Kernel PCA', 'Reductions']
-methods_to_run = ['PCA', 'PCA-S', 'PCA-S2', 'Reductions']
-#methods_to_run = ['Kernel PCA']
+# methods_to_run needs to be a subset of ['Fair PCA', 'Fair PCA-S', 'Fair PCA-S2', 
+#                   'Fair Kernel PCA', 'Reductions']
+methods_to_run = ['Fair PCA', 'Fair PCA-S', 'Fair PCA-S2', 'Fair Kernel PCA', 'Reductions']
 ####################################################################################################
 
 
-seed = {"Adult": 1234, "Bank": 4321}[dataset]
 seed = 1111
 np.random.seed(seed)
 
@@ -110,7 +110,7 @@ for rrr in range(nr_of_runs):
     gamma = 1 / (data.shape[1] * data.var())
 
     ###Fair PCA
-    if 'PCA' in methods_to_run:
+    if 'Fair PCA' in methods_to_run:
         if (not os.path.exists(results_FairPCA_file)):
             k = train_dim - 1
             for ell, tradeoff_param in enumerate(fairness_parameters_FairPCA):
@@ -145,7 +145,7 @@ for rrr in range(nr_of_runs):
                                                  test_predict_FairPCA)
 
     ###Fair PCA-S
-    if 'PCA-S' in methods_to_run:
+    if 'Fair PCA-S' in methods_to_run:
         if (not os.path.exists(results_FairPCA_S_file)):
             k = int(train_dim / 4)
             for ell, tradeoff_param in enumerate(fairness_parameters_FairPCA):
@@ -182,7 +182,7 @@ for rrr in range(nr_of_runs):
                                                  test_predict_FairPCA_S)
 
     ###Fair PCA-S 2
-    if 'PCA-S2' in methods_to_run:
+    if 'Fair PCA-S2' in methods_to_run:
         if (not os.path.exists(results_FairPCA_S_2_file)):
             k = int(train_dim / 2)
             for ell, tradeoff_param in enumerate(fairness_parameters_FairPCA):
@@ -221,7 +221,7 @@ for rrr in range(nr_of_runs):
                                                  test_predict_FairPCA_S_2)
 
     ###Fair PCA Kernel
-    if 'Kernel PCA' in methods_to_run:
+    if 'Fair Kernel PCA' in methods_to_run:
         if (not os.path.exists(results_FairPCA_Kernel_file)):
             k = train_dim - 1
             for ell, tradeoff_param in enumerate(fairness_parameters_FairPCA):
@@ -288,7 +288,7 @@ for rrr in range(nr_of_runs):
                     error_and_fairness_violation(label_TEST, protected_attribute_TEST,
                                                  y_pred_mitigated)
 
-if 'PCA' in methods_to_run:
+if 'Fair PCA' in methods_to_run:
     if (not os.path.exists(results_FairPCA_file)):
         np.savez(results_FairPCA_file, error_FairPCA=error_FairPCA,
                  DP_fairness_FairPCA=DP_fairness_FairPCA,
@@ -310,7 +310,7 @@ if 'PCA' in methods_to_run:
     print('EO Violation Fair PCA')
     print(np.mean(EO_fairness_FairPCA, axis=0))
 
-if 'PCA-S' in methods_to_run:
+if 'Fair PCA-S' in methods_to_run:
     if (not os.path.exists(results_FairPCA_S_file)):
         np.savez(results_FairPCA_S_file, error_FairPCA_S=error_FairPCA_S,
                  DP_fairness_FairPCA_S=DP_fairness_FairPCA_S,
@@ -332,7 +332,7 @@ if 'PCA-S' in methods_to_run:
     print('EO Violation Fair PCA-S (' + str(factor_PCA_S) + ')')
     print(np.mean(EO_fairness_FairPCA_S, axis=0))
 
-if 'PCA-S2' in methods_to_run:
+if 'Fair PCA-S2' in methods_to_run:
     if (not os.path.exists(results_FairPCA_S_2_file)):
         np.savez(results_FairPCA_S_2_file, error_FairPCA_S_2=error_FairPCA_S_2,
                  DP_fairness_FairPCA_S_2=DP_fairness_FairPCA_S_2,
@@ -354,7 +354,7 @@ if 'PCA-S2' in methods_to_run:
     print('EO Violation Fair PCA-S (' + str(factor_PCA_S_2) + ')')
     print(np.mean(EO_fairness_FairPCA_S_2, axis=0))
 
-if 'Kernel PCA' in methods_to_run:
+if 'Fair Kernel PCA' in methods_to_run:
     if (not os.path.exists(results_FairPCA_Kernel_file)):
         np.savez(results_FairPCA_Kernel_file, error_FairPCA_Kernel=error_FairPCA_Kernel,
                  DP_fairness_FairPCA_Kernel=DP_fairness_FairPCA_Kernel,
@@ -404,19 +404,19 @@ if fairness_goal == 'DP':
         ax.scatter(np.mean(DP_fairness_Reduction, axis=0), np.mean(1 - error_Reduction, axis=0),
                    color='red', marker='*', s=200,
                    label='Agarwal et al.')
-    if 'PCA' in methods_to_run:
+    if 'Fair PCA' in methods_to_run:
         ax.scatter(np.mean(DP_fairness_FairPCA, axis=0), np.mean(1 - error_FairPCA, axis=0),
                    color='green', marker='o', s=200,
                    label='Fair PCA')
-    if 'PCA-S' in methods_to_run:
+    if 'Fair PCA-S' in methods_to_run:
         ax.scatter(np.mean(DP_fairness_FairPCA_S, axis=0), np.mean(1 - error_FairPCA_S, axis=0),
                    color='blue', marker='s', s=200,
                    label='Fair PCA-S (' + str(factor_PCA_S) + ')')
-    if 'PCA-S2' in methods_to_run:
+    if 'Fair PCA-S2' in methods_to_run:
         ax.scatter(np.mean(DP_fairness_FairPCA_S_2, axis=0), np.mean(1 - error_FairPCA_S_2, axis=0),
                    color='cyan', marker='d', s=200,
                    label='Fair PCA-S (' + str(factor_PCA_S_2) + ')')
-    if 'Kernel PCA' in methods_to_run:
+    if 'Fair Kernel PCA' in methods_to_run:
         ax.scatter(np.mean(DP_fairness_FairPCA_Kernel, axis=0),
                    np.mean(1 - error_FairPCA_Kernel, axis=0), color='orange', marker='^',
                    s=200, label='Fair Kernel PCA')
@@ -425,25 +425,26 @@ else:
         ax.scatter(np.mean(EO_fairness_Reduction, axis=0), np.mean(1 - error_Reduction, axis=0),
                    color='red', marker='*', s=200,
                    label='Agarwal et al.')
-    if 'PCA' in methods_to_run:
+    if 'Fair PCA' in methods_to_run:
         ax.scatter(np.mean(EO_fairness_FairPCA, axis=0), np.mean(1 - error_FairPCA, axis=0),
                    color='green', marker='o', s=200,
                    label='Fair PCA')
-    if 'PCA-S' in methods_to_run:
+    if 'Fair PCA-S' in methods_to_run:
         ax.scatter(np.mean(EO_fairness_FairPCA_S, axis=0), np.mean(1 - error_FairPCA_S, axis=0),
                    color='blue', marker='s', s=200,
                    label='Fair PCA-S (' + str(factor_PCA_S) + ')')
-    if 'PCA-S2' in methods_to_run:
+    if 'Fair PCA-S2' in methods_to_run:
         ax.scatter(np.mean(EO_fairness_FairPCA_S_2, axis=0), np.mean(1 - error_FairPCA_S_2, axis=0),
                    color='cyan', marker='d', s=200,
                    label='Fair PCA-S (' + str(factor_PCA_S_2) + ')')
-    if 'Kernel PCA' in methods_to_run:
+    if 'Fair Kernel PCA' in methods_to_run:
         ax.scatter(np.mean(EO_fairness_FairPCA_Kernel, axis=0),
                    np.mean(1 - error_FairPCA_Kernel, axis=0), color='orange', marker='^',
                    s=200, label='Fair Kernel PCA')
 
 plt.tick_params(labelsize=19)
-plt.legend(loc='lower right', fontsize=20)
+if plot_legend:
+    plt.legend(loc='lower right', fontsize=20)
 ax.set_ylabel('Accuracy', fontsize=20)
 
 classifier_for_title = {"logreg": "Logistic regression", "kernel_svm": "Kernel SVM"}[

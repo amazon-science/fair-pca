@@ -6,17 +6,17 @@ import numpy as np
 
 embedding_dim_range = [2, 10]
 methods_to_run = [
-    #'PCA',
-    #'FPCA-0.1',
-    #'FPCA-0',
-    #'MBFPCA-3',
-    #'MBFPCA-6',
-    #'INLP',
-    #'RLACE',
-    #'Fair PCA',
-    #'Fair Kernel PCA',
-    #'Fair PCA-S (0.5)',
-    #'Fair PCA-S (0.85)',
+    'PCA',
+    'FPCA-0.1',
+    'FPCA-0',
+    'MBFPCA-3',
+    'MBFPCA-6',
+    'INLP',
+    'RLACE',
+    'Fair PCA',
+    'Fair Kernel PCA',
+    'Fair PCA-S (0.5)',
+    'Fair PCA-S (0.85)',
     'PCA Samadi'
 ]
 
@@ -57,7 +57,7 @@ for counter1, dataset in enumerate(dataset_names):
                 print('***************************************************************************')
                 continue
 
-            if method == 'Fair Kernel PCA':
+            if method in ['Fair Kernel PCA', 'PCA Samadi']:
                 var = (np.nan, np.nan)
             else:
                 var = np.around(np.loadtxt(

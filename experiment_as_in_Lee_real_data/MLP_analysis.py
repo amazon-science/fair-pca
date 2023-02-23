@@ -8,17 +8,17 @@ from sklearn.neural_network import MLPClassifier
 
 embedding_dim_range = [2, 10]
 methods_to_run = [
-    # 'PCA',
-    # 'FPCA-0',
-    # 'FPCA-0.1',
-    # 'MBFPCA-3',
-    # 'MBFPCA-6',
-    # 'Fair PCA',
-    # 'Fair PCA-S (0.5)',
-    # 'Fair PCA-S (0.85)',
-    # 'Fair Kernel PCA',
-    # 'INLP',
-    # 'RLACE',
+    'PCA',
+    'FPCA-0',
+    'FPCA-0.1',
+    'MBFPCA-3',
+    'MBFPCA-6',
+    'Fair PCA',
+    'Fair PCA-S (0.5)',
+    'Fair PCA-S (0.85)',
+    'Fair Kernel PCA',
+    'INLP',
+    'RLACE',
     'PCA Samadi'
 ]
 dataset_names = [

@@ -258,6 +258,7 @@ class MyPipeline(Pipeline):
         Xt = X
         for name, transform in self.steps[:-1]:
             Xt = transform.transform(Xt)
+
         return Xt
 
 
@@ -623,7 +624,6 @@ def check_generalized_eigenproblem_solution(H, K, eigenvectors, eigenvalues):
     TOL = 10 ** (-6)
     deviation = np.linalg.norm(np.matmul(H, eigenvectors) - np.linalg.multi_dot(
         [K, eigenvectors, np.diag(eigenvalues)]), ord=np.inf)
-
     assert deviation < TOL, "Eigenproblem has not been solved within tolerance"
 
 
@@ -666,4 +666,5 @@ def solve_generalized_eigenproblem_for_largest_eigenvalues(H, K, dim):
         print("Adding 10^(-5)*I to alleviate")
         eigs, U = scipy.sparse.linalg.eigsh(H, k=dim, M=(K + 10 ** (-5) * np.eye(K.shape[0])),
                                             which='LA')
+
     return eigs, U
