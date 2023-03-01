@@ -1,6 +1,6 @@
 # Efficient fair PCA for fair representation learning
 
-This repository contains code for our AISTATS 2023 paper [Efficient fair PCA for fair representation learning](http://aistats.org/aistats2023/accepted.html).
+This repository contains code for our AISTATS 2023 paper [Efficient fair PCA for fair representation learning](https://arxiv.org/abs/2302.13319).
 
 ## Preparations
 
