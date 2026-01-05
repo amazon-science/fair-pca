@@ -60,6 +60,8 @@ unzip bank-additional.zip -d comparison_with_Agarwal
 
  * You might observe slightly different results compared to what we reported in the paper. The reason is that in the paper we reran the methods of [Olfat and Aswani (2019)](https://arxiv.org/abs/1802.03765) and [Lee et al. (2022)](https://arxiv.org/abs/2109.11196) while here we use the results provided with the code of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca). Rerunning those methods requires the installation of additional software --- see the repository of [Lee et al. (2022)](https://github.com/nick-jhlee/fair-manifold-pca) for details.
 
+ * This code has been tested with the following package versions: fairlearn 0.7.0; matplotlib 3.5.3; numpy 1.23.1; pandas 1.4.3; scikit_learn 1.1.2; scipy 1.9.0; torch 1.12.1; tqdm 4.64.0
+
 
  ## Citation
 
